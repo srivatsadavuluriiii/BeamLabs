@@ -93,7 +93,7 @@ classdef GaussianBeam
             if isinf(R_z)
                 curv_term = 1.0;
             else
-                curv_term = exp( -1i * obj.k * r.^2 / (2 * R_z) );
+                curv_term = exp( 1i * obj.k * r.^2 / (2 * R_z) );
             end
             
             % --- Beam Steering (Tilt) ---

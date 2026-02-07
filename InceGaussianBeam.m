@@ -112,7 +112,7 @@ classdef InceGaussianBeam
             % Curvature
             R_z = z * (1 + (obj.z0/z)^2);
             if abs(z) < 1e-12, R_z = inf; end
-            curv_term = exp( -1i * obj.k * r_sq / (2 * R_z) );
+            curv_term = exp( 1i * obj.k * r_sq / (2 * R_z) );
             
             % Amplitude Scaling
             p_scale = (args.P_tx_watts > 0) * sqrt(args.P_tx_watts);

@@ -62,7 +62,7 @@ classdef VectorBeam
             % Phase terms
             phase_factor = exp(1i*obj.k*z) .* exp(-1i*psi_z);
             if ~isinf(R_z)
-                phase_factor = phase_factor .* exp(-1i*obj.k*r.^2/(2*R_z));
+                phase_factor = phase_factor .* exp(1i*obj.k*r.^2/(2*R_z));
             end
             
             scalar_profile = amp_factor .* phase_factor;
