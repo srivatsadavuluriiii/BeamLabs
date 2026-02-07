@@ -72,7 +72,7 @@ classdef FlatTopBeam
             if isinf(R_z)
                 phase_part = exp(1i * obj.k * z);
             else
-                phase_part = exp(1i * obj.k * z) .* exp( -1i * obj.k * r_sq / (2 * R_z) );
+                phase_part = exp(1i * obj.k * z) .* exp( 1i * obj.k * r_sq / (2 * R_z) );
             end
             
             base_field = gauss_part .* phase_part;

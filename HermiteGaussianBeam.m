@@ -117,10 +117,10 @@ classdef HermiteGaussianBeam
             if isinf(R_z)
                 curv_phase = 1.0;
             else
-                curv_phase = exp( -1i * obj.k * (x.^2 + y.^2) / (2 * R_z) );
+                curv_phase = exp( 1i * obj.k * (x.^2 + y.^2) / (2 * R_z) );
             end
             
-            gouy_term = exp(1i * psi_z); % Definition convention vary, usually exp(i*psi)
+            gouy_term = exp(-1i * psi_z); % Definition convention vary, usually exp(i*psi)
             
             % --- Steering & Noise ---
             steering = exp(1i * obj.k * (x * args.beam_tilt_x_rad + y * args.beam_tilt_y_rad));

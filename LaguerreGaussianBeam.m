@@ -39,7 +39,7 @@ classdef LaguerreGaussianBeam
         end
         
         function val = beam_waist(obj, z)
-            val = obj.w0 * sqrt(1 + ( (obj.M_squared * z) / obj.z0_fundamental ).^2);
+            val = obj.w0 * sqrt(1 + (z / obj.z0_fundamental).^2);
         end
         
         function val = radius_of_curvature(obj, z)
@@ -47,8 +47,8 @@ classdef LaguerreGaussianBeam
             val = zeros(size(z));
             mask = abs(z) >= 1e-12;
             
-            % R(z) = z * (1 + (z_R/z)^2)
-            val(mask) = z(mask) .* (1 + (obj.z_R ./ z(mask)).^2);
+            % R(z) = z * (1 + (z0_fundamental/z)^2)
+            val(mask) = z(mask) .* (1 + (obj.z0_fundamental ./ z(mask)).^2);
             
             % Set near-zero z to Infinity
             val(~mask) = inf;
@@ -126,7 +126,7 @@ classdef LaguerreGaussianBeam
             if isinf(R_z)
                 curvature_factor = 1.0;
             else
-                curvature_phase = -1i * obj.k * r.^2 / (2 * R_z);
+                curvature_phase = 1i * obj.k * r.^2 / (2 * R_z);
                 curvature_factor = exp(curvature_phase);
             end
             

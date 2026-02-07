@@ -75,7 +75,6 @@ classdef BesselGaussianBeam
             
             % 1. Gaussian Expansion & Amplitude Decay
             % The 1/xi term handles the Gouy phase and amplitude drop of the Gaussian envelope
-            gauss_amp = (1.0 / xi) * exp(-1i * atan(z / obj.z0_gauss)); % Explicit phase extraction
             % Actually, 1/xi covers both amplitude scaling and Gouy phase shift mathematically
             term_gauss_envelope = (1.0 / xi) .* exp( -r.^2 ./ (obj.w0^2 * xi) );
             

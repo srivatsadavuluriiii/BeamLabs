@@ -101,7 +101,7 @@ classdef PerfectVortexBeam
             % Curvature (applies to the ring width)
             if abs(z) > 1e-12
                 R_curv = z * (1 + (z0_ring/z)^2);
-                curv_phase = exp(-1i * obj.k * (r - obj.r_ring).^2 / (2 * R_curv));
+                curv_phase = exp(1i * obj.k * (r - obj.r_ring).^2 / (2 * R_curv));
             else
                 curv_phase = 1.0;
             end
